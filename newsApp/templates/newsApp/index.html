@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sindh Times</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        footer {
+            margin-top: 50px;
+            position: relative;
+            padding: 20px;
+        }
+
+        nav {
+            height: 33px;
+            width: auto;
+            background-color: hsl(47, 41%, 93%)
+        }
+
+        .p {
+            width: auto;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .ul {
+            text-align: center;
+            margin-top: 0px;
+            margin-left: 280px;
+
+        }
+
+        li {
+            background-color: hsl(47, 41%, 93%);
+            text-align: center;
+            padding: 7px;
+            margin-top: 0px;
+            display: inline;
+            float: left;
+            margin-left: 5px;
+
+        }
+
+        .head {
+
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0px;
+
+        }
+
+        .h {
+            color: deepskyblue;
+            text-align: center;
+            height: 50px;
+            width: auto;
+            background-color: hsl(47, 41%, 93%);
+            line-height: 50px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: hsl(40, 4%, 85%);
+        }
+
+        .main {
+            display: flex;
+            align-items: flex-start;
+
+        }
+
+
+
+
+        .article {
+            height: 500px;
+            width: 600px;
+            border-radius: 10px;
+            margin-top: 20px;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            margin-left: 20px;
+            overflow: auto;
+        }
+
+        .art{
+            margin-left: 10px;
+            margin-top: 20px;
+            padding-right: 10px;
+          
+            
+        }
+        .article_heading{
+            padding: 10px;
+            position: -webkit-sticky;
+            position: sticky;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .art>a>p{
+            padding: 30px;
+            background-color:rgb(167, 156, 156);
+            border-radius: 5px;
+           
+        }
+
+        .breaking_news {
+            height: auto;
+            width: auto;
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 0px;
+            padding-right: 20px;
+
+        }
+
+        .news {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .news>a>p {
+            height: 200px;
+            width: 220px;
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            line-height: 30px;
+            padding: 5px;
+        }
+       
+        
+
+        .news>a>p:hover {
+            box-shadow: 1px 2px 5px 0px rgb(68, 66, 66);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="head">
+        <h1 class="h">International The Sindh Times</h1>
+
+        <hr style="height:1px; background-color: black;">
+        <nav class="nav">
+
+            {% for topic in topics%}
+            <ul class="ul">
+                <li><a href="{% url 'news' topic.id %}"> {{topic.name}}</a></li>
+            </ul>
+            {%endfor%}
+
+        </nav>
+    </header>
+    {% block content %}
+    <main class="main">
+        <section class="article">
+            <h2 class="article_heading">Featured Articles</h2>
+            <hr>
+            {% for article in articles %}
+            <article class="art">
+               <a href="{% url 'specid' article.id %}"><p>{{article.body}}</p></a>
+            </article>
+            {%endfor%}
+
+        </section>
+
+        <section class="breaking_news">
+            <article class="news">
+               
+                {% for news in news %}
+                <a href="{% url 'specid' news.id %}">
+                    <p> {{news.body|truncatewords:10}}</p>
+                </a>
+
+                {%endfor%}
+            </article>
+        </section>
+
+
+    </main>
+    {% endblock %}
+
+    <footer>
+
+    </footer>
+    <hr>
+    <p class="p">&copy; 2022 The Sindh Times. All rights reserved.</p>
+</body>
+
+</html>

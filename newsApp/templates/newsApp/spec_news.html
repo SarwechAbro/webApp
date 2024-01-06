@@ -1,0 +1,85 @@
+{% extends 'newsApp/index.html'%}
+
+{% block content %}
+<style>
+    .main {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .main>.related {
+        height: auto;
+        width: 400px;
+
+
+    }
+
+    .main>.artc {
+        height: auto;
+        width: 900px;
+
+    }
+
+    .spnews {
+        margin-left: 20px;
+        margin-top: 20px;
+
+    }
+
+    .spnews>p {
+        margin-left: 20px;
+        margin-top: 40px;
+        padding: 40px;
+        background-color: rgb(199, 204, 209);
+        text-align: left;
+        border-radius: 5px;
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .related>.sider>a>p {
+        margin-left: 30px;
+        margin-top: 40px;
+        padding: 50px;
+        background-color: white;
+        text-align: center;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(1, 1fr);
+        gap: 20px;
+
+    }
+
+
+    .sider>a>p:hover {
+        box-shadow: 1px 2px 5px rgb(83, 83, 83);
+        cursor: pointer;
+    }
+</style>
+<div class="main">
+    <section class="artc">
+        <div class="spnews">
+
+
+            <p class="p"> {{news_item.body}}</p>
+
+
+        </div>
+    </section>
+
+    <section class="related">
+        <div class="sider">
+            {% for news in related_news %}
+
+            <a href="{% url 'specid' news.id %}">
+                <p> {{news.body|truncatewords:20}}</p>
+            </a>
+
+            {%endfor%}
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
