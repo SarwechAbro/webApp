@@ -4,9 +4,6 @@ from .models import Topic, News, Article
 from .web import Web
 
 
-
-
-
 def index(request):
     topics = Topic.objects.all()
     news = News.objects.all()
