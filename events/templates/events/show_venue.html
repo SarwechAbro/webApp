@@ -21,30 +21,32 @@
 	<li>Owner's Email: {{ venue_owner.email }} </li>
 
 	</ul>
-	<br>
+
 
 	{% if venue.venue_image %}
 	<img src="{{ venue.venue_image.url }}" width=500>
 	{% endif %}
-
-
-
     </p>
-    <br/>
-    <h3>Events At This Venue...</h3>
-    {% if events %}
-{% for event in events %}
- <a href="{% url 'show-event' event.id %}">{{ event}}</a><br/>
-{% endfor %}
-<br/>
-{% else %}
-No Events Scheduled At This Time.
-{% endif %}
-  </div>
-  <br/><br/>
-</div>
-	<br/>
+
+	</div>
+	</div>
+    </br>
+	<div class="card">
+		<div class="card-header">
+			Events At This Venue
+		</div>
+		<div class="card-body">
+		<table class="table table-striped table-hover table-bordered"> 
+			{% if events %}
+			{% for event in events %}
+			<tr><td><a href="{% url 'show-event' event.id %}">{{ event }}</a></td></tr>
+			{% endfor %}
+			{% else %}
+			<tr><td>No Events Scheduled At This Time.</td></tr>
+			{% endif %}</table>
+		 </div></div>
+  
 
 	
-	</center>
+	
 {% endblock %}

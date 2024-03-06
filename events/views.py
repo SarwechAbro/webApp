@@ -70,8 +70,6 @@ def admin_approval(request):
 			messages.success(request, ("Event List Approval Has Been Updated!"))
 			return redirect('list-events')
 
-
-
 		else:
 			return render(request, 'events/admin_approval.html',
 				{"event_list": event_list,
@@ -83,8 +81,7 @@ def admin_approval(request):
 		messages.success(request, ("You aren't authorized to view this page!"))
 		return redirect('home')
 
-
-	return render(request, 'events/admin_approval.html')
+	#return render(request, 'events/admin_approval.html')
 
 # Create My Events Page
 def my_events(request):
@@ -345,12 +342,12 @@ def all_events(request):
 
 
 def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
-	name = "John"
+	venue = Venue.objects.all()
 	month = month.capitalize()
 	# Convert month from name to number
 	month_number = list(calendar.month_name).index(month)
 	month_number = int(month_number)
-
+   
 	# create a calendar
 	cal = HTMLCalendar().formatmonth(
 		year, 
@@ -369,7 +366,6 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
 	time = now.strftime('%I:%M %p')
 	return render(request, 
 		'events/home.html', {
-		"name": name,
 		"year": year,
 		"month": month,
 		"month_number": month_number,
@@ -377,6 +373,7 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
 		"current_year": current_year,
 		"time":time,
 		"event_list": event_list,
+		"venue": venue,
 		})
 
 

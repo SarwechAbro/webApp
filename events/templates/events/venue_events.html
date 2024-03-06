@@ -3,9 +3,9 @@
 {% block content %}
 	
 <h1>List Events</h1>
-
+<table class="table table-striped table-hover table-bordered"> 
 {% for event in events %}
- <a href="{% url 'show-event' event.id %}">{{ event}}</a><br/>
+ <tr><td><a href="{% url 'show-event' event.id %}">{{ event}}</a></td></tr>
 {% endfor %}
 	
 {% endblock %}

@@ -15,9 +15,9 @@
 <form method=POST action="{% url 'search_events' %}">
         {% csrf_token %}
 
-        <input class="form-control me-2" type="search" placeholder="Search Venues" aria-label="Search" name="searched">
+        <input class="form-control me-2" type="search" placeholder="Search Events" aria-label="Search" name="searched">
         <br/>
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
+        <button class="btn btn-outline-primary" type="submit">Search</button>
       </form>
 
 </div></div>
@@ -53,7 +53,7 @@
     {% if user == event.manager %}
       <div class="card-footer text-muted">
         
-        <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
+        <a href="{% url 'update-event' event.id %}" class="btn btn-outline-primary btn-sm">Update Event</a>
 
         <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">Delete Event</a>
         

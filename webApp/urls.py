@@ -11,6 +11,6 @@ urlpatterns = [
     path('members/', include('members.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = "My Club Administration Page"
-admin.site.site_title = "Browser Title"
+admin.site.site_header = "My WebApp Administration Page"
+admin.site.site_title = ""
 admin.site.index_title = "Welcome To The Addmin Area..."
