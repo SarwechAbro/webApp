@@ -2,9 +2,12 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-	<center>
-	<h1>Add Venue To Database</h1>
-	<br/><br/>
+<div class="card">
+	<div class="card-header bg-primary text-white">
+	  <h2>Add Venue</h2>
+	</div>
+  </div>
+	<br/>
 	{% if submitted %}
 		Your Venue Was Submitted Succefully!!!
 

@@ -2,7 +2,11 @@
 
 {% block content %}
 	
-<h1>List Events</h1>
+<div class="card">
+	<div class="card-header bg-primary text-white">
+	  <h2>Event List</h2>
+	</div>
+  </div>
 <table class="table table-striped table-hover table-bordered"> 
 {% for event in events %}
  <tr><td><a href="{% url 'show-event' event.id %}">{{ event}}</a></td></tr>

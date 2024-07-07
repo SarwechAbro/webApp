@@ -3,8 +3,12 @@
 {% block content %}
 {% if user.is_authenticated %}	
 	{% if user == event.manager %}
-
-	<h1>Update Event...</h1>
+    <div class="card">
+		<div class="card-header bg-primary text-white">
+		  <h2>Update Event</h2>
+		</div>
+	  </div>
+	
 	<br/>
 	<form action="" method=POST>
 		{% csrf_token %}

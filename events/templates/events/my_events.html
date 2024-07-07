@@ -1,14 +1,17 @@
 {% extends 'events/base.html' %}
 
 {% block content %}
-	
-	<h2>My Events</h2>
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h2>My Events</h2>
+  </div>
+</div>
 	<br/>
 
 	{% for event in events %}
   {% if event.approved %}
 		<div class="card">
-  <div class="card-header">
+  <div class="card-header bg-primary text-white">
     {{ event }}
   </div>
   <div class="card-body">

@@ -3,8 +3,12 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-	<h1>Add Event</h1>
-<br/><br/>
+<div class="card">
+	<div class="card-header bg-primary text-white">
+	  <h2>Add Event</h2>
+	</div>
+  </div>
+<br/>
 
 {% if submitted %}
 		Your Event Was Submitted Succefully!!!

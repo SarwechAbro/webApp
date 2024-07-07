@@ -3,13 +3,17 @@
 {% block content %}
 
 
-<h1>Admin Dashboard</h1>
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h2>Admin Dashboard</h2>
+  </div>
+</div>
 <br/>
 <form action="" method=POST>
 	{% csrf_token %}
 
 <div class="card">
-  <div class="card-header">
+  <div class="card-header bg-primary text-white">
     Event - Venue - User List
   </div>
   <div class="card-body">
@@ -21,8 +25,8 @@
 </div>
 <br/>
 
-<table class="table table-striped table-hover table-bordered">
-  <thead>
+<table class="table table-striped table-hover table-bordered ">
+  <thead class="bg-primary text-white">
     <tr>
       <th scope="col">Venue Name</th>
       <th scope="col">Events</th>
@@ -47,13 +51,17 @@
 
 
 <br/>
-<h1>Event Approval Form</h1>
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h2>Approval Table</h2>
+  </div>
+</div>
 <br/>
 <table class="table table-striped table-hover table-bordered">
-  <thead>
+  <thead class="bg-primary text-white"   >
     <tr>
       <th scope="col">Event Name</th>
-      <th scope="col">Aproved</th>
+      <th scope="col">Approved</th>
     </tr>
   </thead>
   <tbody>
@@ -80,7 +88,7 @@
 </table>
 
 
-<button class='btn btn-success' type="submit">Update Approval</button>
+<button class='btn btn-primary' type="submit">Update Approval</button>
 
 
 

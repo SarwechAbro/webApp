@@ -1,18 +1,21 @@
 {% extends 'events/base.html' %}
 
 {% block content %}
-	
-	<h1>Events</h1>
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    <h2>Events</h2>
+  </div>
+</div>
 	<br/>
 	
 {% for event in event_list %}
 {% if event.approved %}
 <div class="card">
-  <div class="card-header">
+  <div class="card-header bg-primary text-white">
     {{ event }}
   </div>
   <div class="card-body">
-    <h5 class="card-title">Venue: {{ event.venue }}</h5>
+    <h5 class="card-title ">  {{ event.venue }}</h5>
     <p class="card-text">
     	<ul>
 <li>Date: {{ event.event_date }}</li>
