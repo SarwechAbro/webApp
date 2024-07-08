@@ -16,14 +16,6 @@ class Venue(models.Model):
 		return self.name
 
 
-class MyClubUser(models.Model):
-	first_name = models.CharField(max_length=30)
-	last_name = models.CharField(max_length=30)
-	email = models.EmailField('User Email')
-
-
-	def __str__(self):
-		return self.first_name + ' ' + self.last_name
 
 
 class Event(models.Model):
@@ -31,9 +23,9 @@ class Event(models.Model):
 	event_date = models.DateTimeField('Event Date')
 	venue = models.ForeignKey(Venue, blank=True, null=True, on_delete=models.CASCADE)
 	#venue = models.CharField(max_length=120)
-	manager = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+	manager = models.ForeignKey(User, related_name='manager',blank=True, null=True, on_delete=models.SET_NULL)
 	description = models.TextField(blank=True)
-	attendees = models.ManyToManyField(MyClubUser, blank=True)
+	attendees = models.ManyToManyField(User, blank=True)
 	approved = models.BooleanField('Aprroved', default=False)
 
 	def __str__(self):

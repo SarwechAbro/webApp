@@ -1,12 +1,13 @@
 from django.contrib import admin
-from .models import Venue, Event, MyClubUser
+from .models import Venue, Event
+from django.contrib.auth.models import Permission
 
 
+@admin.register(Permission)
+class PermissionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'codename')
 
-
-
-admin.site.register(MyClubUser)
-
+#admin.site.register(Permission, PermissionAdmin)
 @admin.register(Venue)
 class VenueAdmin(admin.ModelAdmin):
 	list_display = ('name', 'address', 'phone')
