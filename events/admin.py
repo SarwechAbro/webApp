@@ -6,8 +6,8 @@ from django.contrib.auth.models import Permission
 @admin.register(Permission)
 class PermissionAdmin(admin.ModelAdmin):
     list_display = ('name', 'codename')
-
 #admin.site.register(Permission, PermissionAdmin)
+
 @admin.register(Venue)
 class VenueAdmin(admin.ModelAdmin):
 	list_display = ('name', 'address', 'phone')

@@ -23,6 +23,7 @@ from django.core.paginator import Paginator
 
 
 # Show Event
+
 def show_event(request, event_id):
 	event = Event.objects.get(pk=event_id)
 	return render(request, 'events/show_event.html', {
