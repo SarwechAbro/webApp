@@ -10,16 +10,17 @@ from .forms import VenueForm, EventForm, EventFormAdmin
 from django.http import HttpResponse
 import csv
 from django.contrib import messages
-
+from rest_framework.decorators import api_view 
 # Import PDF Stuff
 from django.http import FileResponse
 import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
-
+from .serializers import EventSerializer
 # Import Pagination Stuff
 from django.core.paginator import Paginator
+from rest_framework.response import Response
 
 
 # Show Event
@@ -378,3 +379,8 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
 		})
 
 
+@api_view(['GET'])
+def event_list(request):
+	events = Event.objects.all()
+	serializer = EventSerializer(events, many=True)
+	return Response(serializer.data)
