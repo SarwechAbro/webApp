@@ -2,20 +2,23 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Topic, News, Article
 from .web import Web
-
+from newsapi import NewsApiClient
+from .news import content
 
 def index(request):
+    news = content()
+
     topics = Topic.objects.all()
-    news = News.objects.all()
+   # news = News.objects.all()
     articles = Article.objects.all()
     context = {'topics': topics, 'news': news, 'articles': articles}
     return render(request, "newsApp/index.html", context)
 
 
-def news(request, pk):
-    news = News.objects.filter(topics=pk)
-    topic = Topic.objects.get(id=pk)
-    context = {'news': news, 'topic':topic}
+def news(request, name):
+    id = Topic.objects.get(name=name)
+    news = News.objects.filter(topics=id)
+    context = {'news': news, 'topic':name}
     return render(request, "newsApp/news.html", context )
 
 def spec_news(request, id):

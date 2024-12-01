@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 30px;
+
+}
+
+.main>.news {
+    height: auto;
+    flex: 70%;
+
+}
+
+.main>.related {
+    height: auto;
+    flex: auto;
+    margin-left: 10px;
+}
+
+
+.news>p {
+    margin-top: 15px;
+    padding: 40px;
+    background-color: rgb(199, 204, 209);
+    text-align: left;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.related>a>p {
+    margin-top: 15px;
+    padding: 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+.related>a>p:hover {
+    box-shadow: 1px 2px 5px rgb(83, 83, 83);
+    cursor: pointer;
+}

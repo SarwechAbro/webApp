@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sindh Times</title>
+    <link rel="stylesheet" href="{% static 'newsApp/base.css' %}">
+</head>
+<body>
+    <header class="head">
+        <h1 class="h">International The Sindh Times</h1>
+        <hr style="height:1px; background-color: black;">
+        <nav class="nav">
+            <ul class="ul">
+                {% for topic in topics%}
+                <li><a href="{% url 'news' topic.name %}"> {{topic.name}}</a></li>
+                {%endfor%}
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+
+
+    {% endblock %}
+    <footer>
+
+    </footer>
+    <hr>
+    <p class="last_footer">&copy; 2022 The Sindh Times. All rights reserved.</p>
+</body>
+
+</html>

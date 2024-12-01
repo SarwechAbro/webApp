@@ -1,0 +1,62 @@
+.main {
+  display: flex;
+
+
+}
+
+.article {
+  height: auto;
+  width: 500px;
+  border-radius: 10px;
+  margin-top: 25px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  margin-left: 20px;
+}
+
+.article_heading {
+  padding: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.article_body {
+  margin-left: 10px;
+  margin-top: 20px;
+  padding-right: 10px;
+}
+
+.article_body>a>p {
+  padding: 30px;
+  background-color: rgb(167, 156, 156);
+  border-radius: 5px;
+
+}
+
+.breaking_news {
+  margin-top: 20px;
+  margin-left: 10px;
+
+}
+
+.news {
+  display: flex;
+
+
+}
+
+.news>a>p {
+  width: 230px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+}
+
+
+
+.news>a>p:hover {
+  box-shadow: 1px 2px 5px 0px rgb(68, 66, 66);
+  cursor: pointer;
+}
