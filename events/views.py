@@ -17,7 +17,7 @@ import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
 from reportlab.lib.pagesizes import letter
-from .serializers import EventSerializer
+from .serializers import EventSerializer , UserSerializer, UserRegistrationSerializer
 # Import Pagination Stuff
 from django.core.paginator import Paginator
 from rest_framework.response import Response
@@ -379,8 +379,3 @@ def home(request, year=datetime.now().year, month=datetime.now().strftime('%B'))
 		})
 
 
-@api_view(['GET'])
-def event_list(request):
-	events = Event.objects.all()
-	serializer = EventSerializer(events, many=True)
-	return Response(serializer.data)

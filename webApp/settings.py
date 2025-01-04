@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'members',
     'events',
-    'newsApp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
